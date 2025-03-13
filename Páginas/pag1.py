@@ -1,8 +1,12 @@
 from flet import *
 
-def home_view(page: Page):
-    def go_to_home(e):
-        page.go("/")
+def login(page: Page):
+    def conf_func(e):
+        usuario=Item.controls[0].content.controls[1].controls[0].value
+        senha=Item.controls[0].content.controls[1].controls[1].value
+        if usuario=='Pedro' and senha=='123':
+            page.go("/pag_inicial")
+
 
     def desb_conf_func(e):
         cod1=Item.controls[0].content.controls[1].controls[0].value
@@ -62,7 +66,7 @@ def home_view(page: Page):
                                                             alignment=MainAxisAlignment.END,
                                                             controls=[
                                                                     ElevatedButton(
-                                                                        text='Cancelar',
+                                                                        text='Esqueci a senha.',
                                                                         style=ButtonStyle(
                                                                                         shape=RoundedRectangleBorder(radius=4),
                                                                         )
@@ -73,6 +77,7 @@ def home_view(page: Page):
                                                                                         shape=RoundedRectangleBorder(radius=4)
                                                                         ),
                                                                         disabled=True,
+                                                                        on_click=conf_func
                                                                     )
                                                             ]
                                                         )
@@ -88,7 +93,7 @@ def home_view(page: Page):
         width=page.window.width-33,
         height=page.window.height,
         content=Item,
-        bgcolor=colors.RED,
+        bgcolor=colors.BLACK,
     )
 
 
