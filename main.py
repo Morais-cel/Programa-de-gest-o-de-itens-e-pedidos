@@ -1,6 +1,8 @@
 import flet as ft
 from Páginas.pag1 import login
 from Páginas.pag2 import page_inicial
+#from Páginas.pag3 import add
+
 def main(page: ft.Page):
     page.title = "Multi-View App"
     page.update()
@@ -12,6 +14,8 @@ def main(page: ft.Page):
             page.views.append(login(page))
         elif page.route == "/pag_inicial":
             page.views.append(page_inicial(page))
+        #elif page.route == "/add_item":
+            #page.views.append(add(page))
         page.update()
 
     page.on_route_change = route_change
